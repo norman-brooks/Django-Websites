@@ -10,7 +10,6 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
-import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -21,7 +20,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-l7q@m)9hw)v#)6$vsu%6ginwmq))3)9p^v-%m4k4mqjrpf$hc+'
+SECRET_KEY = 'django-insecure-(zeh^s@x7^g387py^+h)o%$9vup)*neaef7w_%5th4wh*yo!8j'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -38,7 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'profiles',
+    'products',
 ]
 
 MIDDLEWARE = [
@@ -52,11 +51,11 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'mainapp.urls'
-
+import os
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / "templates"],  # ← this must be correct
+        'DIRS': [os.path.join(BASE_DIR, "templates")],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -69,8 +68,6 @@ TEMPLATES = [
     },
 ]
 
-
-
 WSGI_APPLICATION = 'mainapp.wsgi.application'
 
 
@@ -80,12 +77,9 @@ WSGI_APPLICATION = 'mainapp.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': r'C:\python-projects\Hello_World\src\mainapp\db.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
-
-
-
 
 
 # Password validation
@@ -123,9 +117,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
 STATIC_URL = 'static/'
-# Added for assignment on step 377
 STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'resources'),
+    os.path.join(BASE_DIR, 'assets'),
 )
 
 # Default primary key field type

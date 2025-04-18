@@ -1,4 +1,4 @@
-{% load static %}
+{% load static %} <!--Added on step 10 of video to reference urls.py-->
 
 <!DOCTYPE html>
 <html lang="en" class="bg_img">
@@ -8,17 +8,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <link href="//fonts.googleapis.com/css?family=Lobster&subset=latin, latin-ext" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" type="text/css" href="{% static 'world.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/layout.css' %}"> <!--added on step 10 of video-->
     </head>
     <body>
-        <div class="page container">
-            {% include "navbar.html" %}
+        <div class="page_container">
+            {% include "navbar.html" %} <!--This added on video 9 to refer to navbar folder-->
             <header class="header-title">
                 <h1>{%  block header %}{%  endblock %}</h1>
             </header>
             {% block content %}{% endblock %}
         </div>
 
-        {% include "footer.html" %}
+        {% include "footer.html" %} <!--refers to new footer file created on step 9 video-->
     </body>
 </html>
