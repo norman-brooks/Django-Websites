@@ -1,1 +1,2 @@
-# Django-Websites
+# Django
+Projects that utilized django and sqlite
